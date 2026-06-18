@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Instituto Polivalente José Trinidad Cabañas</title>
+
+<!-- ICONOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- FUENTE -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET GENERAL
+========================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+
+/* ===== FONDO PERSONALIZABLE ===== */
+background: url('fondo.jpg');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+
+color: white;
+overflow-x: hidden;
+}
+
+/* OSCURECER FONDO */
+body::before{
+content:"";
+position: fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: rgba(0,0,0,0.75);
+z-index: -1;
+}
+
+/* =========================
+   HEADER / MENU
+========================= */
+header{
+position: fixed;
+top:0;
+left:0;
+width:100%;
+background: rgba(0,0,0,0.85);
+backdrop-filter: blur(10px);
+border-bottom: 2px solid white;
+z-index:1000;
+}
+
+.navbar-container{
+max-width:1400px;
+margin:auto;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* LOGO */
+.navbar-brand{
+display:flex;
+align-items:center;
+gap:15px;
+cursor:pointer;
+}
+
+.logo-instituto{
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid white;
+background:white;
+}
+
+/* SI NO HAY LOGO */
+.logo-temporal{
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:white;
+color:black;
+font-weight:bold;
+font-size:22px;
+}
+
+/* TEXTO LOGO */
+.brand-info h1{
+font-size:20px;
+color:white;
+}
+
+.brand-info p{
+font-size:12px;
+color:#ccc;
+}
+
+/* MENU */
+.navbar-menu{
+display:flex;
+list-style:none;
+gap:10px;
+}
+
+.menu-item{
+display:inline-block;
+}
+
+.menu-link{
+display:block;
+padding:10px 16px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.menu-link:hover{
+background:white;
+color:black;
+}
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+.wrapper-principal{
+max-width:1400px;
+margin:120px auto 50px;
+padding:20px;
+}
+
+/* PANELES */
+.panel-vista{
+display:none;
+background: rgba(0,0,0,0.6);
+padding:40px;
+border-radius:20px;
+backdrop-filter: blur(8px);
+}
+
+.modulo-activo{
+display:block;
+animation: fade 0.5s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform: translateY(20px);
+}
+to{
+opacity:1;
+transform: translateY(0);
+}
+}
+
+/* TITULOS */
+.encabezado-seccion{
+border-left:5px solid white;
+padding-left:15px;
+margin-bottom:30px;
+}
+
+.encabezado-seccion h2{
+font-size:36px;
+color:white;
+}
+
+.encabezado-seccion p{
+color:#ddd;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+.mosaico-tarjetas-arquitectura{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.bloque-tarjeta-premium{
+background: rgba(255,255,255,0.05);
+border-radius:15px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.bloque-tarjeta-premium:hover{
+transform:translateY(-6px);
+}
+
+.tarjeta-visor-imagen{
+height:220px;
+overflow:hidden;
+}
+
+.tarjeta-visor-imagen img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.tarjeta-cuerpo-detalles{
+padding:20px;
+}
+
+.tarjeta-cuerpo-detalles h3{
+color:white;
+margin-bottom:10px;
+}
+
+.tarjeta-cuerpo-detalles p{
+color:#ddd;
+text-align:justify;
+}
+
+/* =========================
+   MAESTROS
+========================= */
+.mosaico-personal-directivo{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.perfil-docente-circulo{
+background: rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+.marco-foto-redonda{
+width:160px;
+height:160px;
+border-radius:50%;
+overflow:hidden;
+margin:auto;
+border:3px solid white;
+}
+
+.marco-foto-redonda img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.perfil-docente-circulo h4{
+margin-top:10px;
+color:white;
+font-size:16px;
+}
+
+.perfil-docente-circulo p{
+color:#ccc;
+font-size:13px;
+}
+
+/* =========================
+   TABLAS
+========================= */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:white;
+color:black;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid rgba(255,255,255,0.2);
+color:white;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+color:white;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+<header>
+    <div class="navbar-container">
+
+        <div class="navbar-brand" onclick="mostrarVistaModulo('modulo-bienvenida')">
+
+            <!-- CAMBIA logo.png POR TU LOGO -->
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.97&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dd5o98&zw.jpg" class="logo-instituto" alt="Logo">
+
+            <div class="brand-info">
+                <h1>Instituto Polivalente José Trinidad Cabañas</h1>
+                <p>Olanchito, Yoro, Honduras</p>
+            </div>
+        </div>
+
+        <ul class="navbar-menu">
+            <li class="menu-item">
+                <a class="menu-link" onclick="mostrarVistaModulo('modulo-bienvenida')">Inicio</a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" onclick="mostrarVistaModulo('modulo-historia')">Historia</a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" onclick="mostrarVistaModulo('modulo-jornadas')">Jornadas</a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" onclick="mostrarVistaModulo('modulo-carreras')">Carreras</a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" onclick="mostrarVistaModulo('modulo-personal')">Personal</a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" onclick="mostrarVistaModulo('modulo-contacto')">Contacto</a>
+            </li>
+        </ul>
+
+    </div>
+</header>
+
+<div class="wrapper-principal">
+
+<!-- ========================================= -->
+<!-- INICIO -->
+<!-- ========================================= -->
+
+<div class="panel-vista modulo-activo" id="modulo-bienvenida">
+
+    <div class="encabezado-seccion">
+        <h2>Bienvenidos</h2>
+        <p>Portal Oficial del Instituto Polivalente José Trinidad Cabañas</p>
+    </div>
+
+    <div class="mosaico-tarjetas-arquitectura">
+
+        <div class="bloque-tarjeta-premium">
+            <div class="tarjeta-visor-imagen">
+                <img src="c:\Users\User\Downloads\desf.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>Nuestra Institución</h3>
+
+                <p>
+                    Somos una institución educativa comprometida con la formación
+                    integral de los jóvenes de Olanchito y zonas vecinas,
+                    ofreciendo educación de calidad en diferentes áreas
+                    académicas y técnicas.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="bloque-tarjeta-premium">
+            <div class="tarjeta-visor-imagen">
+                <img src="c:\Users\User\Downloads\tods.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>Formación Integral</h3>
+
+                <p>
+                    Nuestro objetivo es desarrollar conocimientos,
+                    habilidades técnicas, valores humanos y capacidades
+                    profesionales que permitan a los estudiantes continuar
+                    estudios universitarios o incorporarse al mercado laboral.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- HISTORIA -->
+<!-- ========================================= -->
+
+<div class="panel-vista" id="modulo-historia">
+
+    <div class="encabezado-seccion">
+        <h2>Historia Institucional</h2>
+        <p>Más de cinco décadas formando generaciones.</p>
+    </div>
+
+    <p style="margin-bottom:20px;">
+        El Instituto José Trinidad Cabañas es un pilar histórico en la formación media de Honduras. Su nombre rinde homenaje al General José Trinidad Cabañas (1805-1871), recordado como el "Soldado de la Patria" y el presidente más honesto de la historia nacional, quien impulsó la educación como un derecho fundamental.La red de centros educativos que llevan su nombre tiene distintas sedes en el país, incluyendo el reconocido Instituto Oficial Nocturno fundado originalmente en Comayagüela en 1968.Historia del Instituto en ComayagüelaFundación: Creado en 1968 gracias a la iniciativa del profesor Ramón Durán Hernández, con el objetivo de brindar oportunidades de estudio a jóvenes y adultos que trabajaban durante el día.Inicios: Inició bajo administración privada y operando en una casa alquilada con las modalidades de Ciclo Común, Bachillerato en Ciencias y Letras, y Secretariado Comercial.Oficialización: El 17 de enero de 1969, el gobierno emitió el Acuerdo No. 111-E.P., dándole el estatus y el reconocimiento oficial para operar.
+    </p>
+
+    <p style="margin-bottom:20px;">
+        Su objetivo principal era brindar oportunidades de estudio a jóvenes
+        y adultos que trabajaban durante el día y deseaban superarse
+        académicamente.
+    </p>
+
+    <p style="margin-bottom:20px;">
+        Con el paso de los años la institución pasó a formar parte del sistema
+        educativo nacional y amplió su infraestructura, incorporando
+        laboratorios, talleres técnicos y nuevas carreras.
+    </p>
+
+    <p>
+        Actualmente es uno de los centros educativos más importantes de la
+        región, contribuyendo al desarrollo educativo y profesional de cientos
+        de estudiantes cada año.
+    </p>
+
+</div>
+
+<!-- ========================================= -->
+<!-- JORNADAS -->
+<!-- ========================================= -->
+
+<div class="panel-vista" id="modulo-jornadas">
+
+    <div class="encabezado-seccion">
+        <h2>Jornadas de Estudio</h2>
+        <p>Modalidades educativas que ofrece el instituto.</p>
+    </div>
+
+    <div class="mosaico-tarjetas-arquitectura">
+
+        <!-- MATUTINA -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.24&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15cuhr21&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>Jornada Matutina</h3>
+
+                <p>
+                    Atiende a estudiantes del Tercer Ciclo y Bachilleratos
+                    durante las horas de la mañana.
+                </p>
+
+                <p>
+                    En esta jornada se desarrollan actividades académicas,
+                    deportivas, culturales y prácticas de laboratorio.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- VESPERTINA -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.10&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15cgbj8&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>Jornada Vespertina</h3>
+
+                <p>
+                    Diseñada para estudiantes que reciben clases durante
+                    horas de la tarde.
+                </p>
+
+                <p>
+                    Permite ampliar la cobertura educativa y aprovechar
+                    mejor la infraestructura institucional.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- NOCTURNA -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.13&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15cgce12&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>Jornada Nocturna</h3>
+
+                <p>
+                    Conserva la esencia fundacional del instituto,
+                    brindando oportunidades a jóvenes y adultos que trabajan.
+                </p>
+
+                <p>
+                    Las clases se desarrollan en horarios adaptados para
+                    facilitar la continuidad educativa.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ISEMED -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.64&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dcu463&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>ISEMED</h3>
+
+                <p>
+                    Sistema de Educación Media a Distancia que funciona
+                    principalmente durante fines de semana.
+                </p>
+
+                <p>
+                    Facilita el acceso a la educación para personas de
+                    comunidades rurales y zonas alejadas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ========================================= -->
+<!-- CARRERAS -->
+<!-- ========================================= -->
+
+<div class="panel-vista" id="modulo-carreras">
+
+    <div class="encabezado-seccion">
+        <h2>Oferta Académica</h2>
+        <p>Carreras y especialidades que ofrece el Instituto Polivalente José Trinidad Cabañas.</p>
+    </div>
+
+    <div class="mosaico-tarjetas-arquitectura">
+
+        <!-- INFORMÁTICA -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="c:\Users\User\Downloads\516365771_122111583476930604_4886258830183042479_n.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>BTP en Informática</h3>
+
+                <p>
+                    Forma profesionales capaces de desarrollar software,
+                    administrar bases de datos, crear páginas web,
+                    gestionar redes informáticas y brindar soporte técnico.
+                </p>
+
+                <p>
+                    Los estudiantes trabajan en laboratorios equipados
+                    con computadoras y herramientas tecnológicas modernas.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ELECTRICIDAD -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.67&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dcv466&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>BTP en Electricidad</h3>
+
+                <p>
+                    Capacita a los estudiantes en instalaciones eléctricas,
+                    sistemas industriales, controles eléctricos y seguridad.
+                </p>
+
+                <p>
+                    Los alumnos desarrollan prácticas en talleres especializados
+                    con herramientas y equipos técnicos.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ESTRUCTURAS METÁLICAS -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.139&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15eb9r141&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>BTP en Estructuras Metálicas</h3>
+
+                <p>
+                    Prepara estudiantes en soldadura, corte,
+                    fabricación de estructuras y procesos industriales.
+                </p>
+
+                <p>
+                    Se realizan prácticas de taller para fortalecer
+                    las competencias técnicas del estudiante.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- MADERA -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.161&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15ebkr161&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>BTP en Madera y Ebanistería</h3>
+
+                <p>
+                    Desarrolla habilidades en diseño,
+                    construcción y acabado de muebles y productos de madera.
+                </p>
+
+                <p>
+                    Los estudiantes utilizan maquinaria especializada
+                    para la transformación y elaboración de proyectos.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- HOGAR -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.147&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15ebcp147&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>BTP en Educación para el Hogar</h3>
+
+                <p>
+                    Forma estudiantes en gastronomía,
+                    nutrición, confección, administración del hogar
+                    y emprendimiento.
+                </p>
+
+                <p>
+                    Combina teoría y práctica para desarrollar
+                    habilidades productivas y empresariales.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- BCH -->
+
+        <div class="bloque-tarjeta-premium">
+
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.62&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dctt62&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+
+                <h3>Bachillerato en Ciencias y Humanidades (BCH)</h3>
+
+                <p>
+                    Orientado a estudiantes que desean continuar
+                    estudios universitarios en diferentes áreas
+                    del conocimiento.
+                </p>
+
+                <p>
+                    Fortalece competencias en Matemáticas,
+                    Ciencias Naturales, Español, Estudios Sociales
+                    e Inglés.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="encabezado-seccion">
+        <h2>Infraestructura de Aprendizaje</h2>
+    </div>
+
+    <div class="mosaico-tarjetas-arquitectura">
+
+        <div class="bloque-tarjeta-premium">
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.95&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dd4p95&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+                <h3>Laboratorios de Computación</h3>
+                <p>
+                    Espacios destinados al aprendizaje tecnológico,
+                    programación y redes informáticas.
+                </p>
+            </div>
+        </div>
+
+        <div class="bloque-tarjeta-premium">
+            <div class="tarjeta-visor-imagen">
+                <img src=".jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+                <h3>Laboratorios de Ciencias</h3>
+                <p>
+                    Utilizados para prácticas de Física,
+                    Química y Biología.
+                </p>
+            </div>
+        </div>
+
+        <div class="bloque-tarjeta-premium">
+            <div class="tarjeta-visor-imagen">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.83&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dd0w83&zw.jpg" alt="">
+            </div>
+
+            <div class="tarjeta-cuerpo-detalles">
+                <h3>Laboratorio Contable</h3>
+                <p>
+                    Espacio destinado al desarrollo de actividades
+                    administrativas y financieras.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="encabezado-seccion">
+        <h2>Proyección Institucional</h2>
+    </div>
+
+    <p>
+        El Instituto Polivalente José Trinidad Cabañas gradúa cada año
+        a decenas de estudiantes en las diferentes áreas académicas y técnicas.
+        Los egresados cuentan con la preparación necesaria para incorporarse
+        al mercado laboral o continuar estudios superiores en universidades
+        nacionales e internacionales.
+    </p>
+
+</div>
+<div class="panel-vista" id="modulo-personal">
+
+    <div class="encabezado-seccion">
+        <h2>Personal Docente y Administrativo</h2>
+        <p>Equipo profesional del Instituto Polivalente José Trinidad Cabañas</p>
+    </div>
+
+    <div class="mosaico-personal-directivo">
+
+        <!-- DIRECTORA -->
+        <div class="perfil-docente-circulo">
+            <div class="marco-foto-redonda">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.71&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dcxg73&zw.jpg" alt="Directora">
+            </div>
+            <h4>Lic. Justa Geovany Spear Ramos</h4>
+            <p>Directora</p>
+        </div>
+
+        <!-- MAESTROS -->
+        <div class="perfil-docente-circulo">
+            <div class="marco-foto-redonda">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.125&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv5l126&zw.jpg" alt="Informatica">
+                " alt="Informática">
+            </div>
+            <h4>Lic. Leonor Vanegas</h4>
+            <p>Coordinadora de Informática</p>
+        </div>
+
+        <div class="perfil-docente-circulo">
+            <div class="marco-foto-redonda">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.105&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15duva106&zw.jpg" alt="Electricidad">
+            </div>
+            <h4>Lic. Claudia</h4>
+            <p>Coordinadora de Electricidad</p>
+        </div>
+
+        <div class="perfil-docente-circulo">
+            <div class="marco-foto-redonda">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.132&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv7w130&zw" alt="Madera">
+            </div>
+            <h4>Lic.Oscar</h4>
+            <p>Coordinador de todas las Areas </p>
+        </div>
+
+        <div class="perfil-docente-circulo">
+            <div class="marco-foto-redonda">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.119&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv2o120&zw.jpg" alt="Hogar">
+            </div>
+            <h4>Licda. Francis</h4>
+            <p>Coordinadora de Hogar</p>
+        </div>
+
+    </div>
+
+   <div class="mosaico-personal-directivo">
+
+    <!-- MAESTRO 1 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.113&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15duyy113&zw.jpg" alt="Maestro 1">
+        </div>
+        <h4>Lic Donaldo Gonzales </h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 2 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="c:\Users\User\Downloads\dan.jpg" alt="Maestro 2">
+        </div>
+        <h4>Lic.Daniel Moncada </h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 3 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.104&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15duuc104&zw.jpg" alt="Maestro 3">
+        </div>
+        <h4>Lic.Armando</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 4 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.121&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv21119&zw.jpg" alt="Maestro 4">
+        </div>
+        <h4>Lic.Fatima </h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 5 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.124&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv4n124&zw.jpg" alt="Maestro 5">
+        </div>
+        <h4>Lic.Isabell Cristina </h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 6 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.136&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dvc5136&zw.jpg" alt="Maestro 6">
+        </div>
+        <h4>Lic.Yadira Reyes</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 7 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="maestro7.jpg" alt="Maestro 7">
+        </div>
+        <h4>Lic.Delia Fuentes</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 8 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.126&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv62127&zw.jpg" alt="Maestro 8">
+        </div>
+        <h4>Lic.Maria chacon</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 9 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="c:\Users\User\Downloads\digna.jpg" alt="Maestro 9">
+        </div>
+        <h4>Lic.Carolina Martinez</h4>
+        <p>Sub Directora</p>
+    </div>
+
+    <!-- MAESTRO 10 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.100&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dusz100&zw.jpg" alt="Maestro 10">
+        </div>
+        <h4>Lic.Alba Trochez</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 11 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.137&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dvbl135&zw.jpg" alt="Maestro 11">
+        </div>
+        <h4></h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 12 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.131&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv9i132&zw.jpg" alt="Maestro 12">
+        </div>
+        <h4>Lic.Ronal</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 13 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="c:\Users\User\Downloads\olg.jpg" alt="Maestro 13">
+        </div>
+        <h4>Lic.Olga </h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 14 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.114&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15duzx115&zw.jpg" alt="Maestro 14">
+        </div>
+        <h4>Lic.Elvin Vazquez</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 15 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.115&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15duzg114&zw.jpg" alt="Maestro 15">
+        </div>
+        <h4>Lic.Edith</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 16 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.117&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv0w117&zw.jpg" alt="Maestro 16">
+        </div>
+        <h4>Lic.Erika</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 17 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.123&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv46123&zw.jpg" alt="Maestro 17">
+        </div>
+        <h4>Lic.German</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 18 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.127&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv6j128&zw.jpg" alt="Maestro 18">
+        </div>
+        <h4>Lic.Norma Quezada</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 19 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.128&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv54125&zw.jpg" alt="Maestro 19">
+        </div>
+        <h4>Lic.Isrrael</h4>
+        <p>Docente</p>
+    </div>
+
+    <!-- MAESTRO 20 -->
+    <div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=646b6a50b6&attid=0.130&permmsgid=msg-f:1867175803816455029&th=19e98a8037af2b75&view=att&disp=safe&realattid=f_mq15dv8u131&zw.jpg" alt="Maestro 20">
+        </div>
+        <h4>Lic.Riseldy</h4>
+        <p>Docentes de Areas de Fisica y Deportes</p>
+    </div>
+
+</div>
+<div class="perfil-docente-circulo">
+        <div class="marco-foto-redonda">
+            <img src="c:\Users\User\Downloads\alej.jpg" alt="Maestro 20">
+        </div>
+        <h4>Mstr.Alejandro Delarca</h4>
+        <p>Maestro de Madera</p>
+    </div>
+
+
+
+
+   
+
+<!-- CONTACTO -->
+
+<div class="panel-vista" id="modulo-contacto">
+
+    <div class="encabezado-seccion">
+        <h2>Contacto y Admisiones</h2>
+        <p>Información institucional y proceso de matrícula</p>
+    </div>
+
+    <div class="grid-contacto-módulos">
+
+        <div class="modulo-contacto-directo">
+            <div class="icono-contacto-esfera">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="info-contacto-desglose">
+                <h4>Ubicación</h4>
+                <p>Olanchito, Yoro, Honduras</p>
+            </div>
+        </div>
+
+        <div class="modulo-contacto-directo">
+            <div class="icono-contacto-esfera">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="info-contacto-desglose">
+                <h4>Correo Institucional</h4>
+                <p>administracion@ipjtc.edu.hn</p>
+            </div>
+        </div>
+
+        <div class="modulo-contacto-directo">
+            <div class="icono-contacto-esfera">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="info-contacto-desglose">
+                <h4>Teléfono</h4>
+                <p>+504 XXXX-XXXX</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="subtitulo-lineal">
+        Requisitos de Matrícula
+    </div>
+
+    <div class="bloque-informativo-reglas">
+
+        <h4>
+            <i class="fa-solid fa-file-lines"></i>
+            Documentación Requerida
+        </h4>
+
+        <p>
+            Presentar certificado de estudios, partida de nacimiento,
+            fotografías tamaño carnet, copia de identidad del encargado
+            y demás requisitos establecidos por la Secretaría de Educación.
+        </p>
+
+    </div>
+
+    <div class="caja-vinculo-redsocial">
+
+        <div class="explicacion-redes">
+
+            <h3>
+                <i class="fa-brands fa-facebook"></i>
+                Facebook Oficial
+            </h3>
+
+            <p>
+                Síguenos para conocer avisos, actividades, ferias científicas,
+                desfiles, matrículas y comunicados oficiales.
+            </p>
+
+        </div>
+
+        <a href="https://facebook.com"
+           target="_blank"
+           class="enlace-redireccion-fb">
+
+            Ir a Facebook
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+<footer>
+    <p>
+        © 2026 Instituto Polivalente Oficial José Trinidad Cabañas
+        | Olanchito, Yoro, Honduras
+    </p>
+</footer>
+
+<script>
+
+function mostrarVistaModulo(idModuloObjetivo){
+
+    document.querySelectorAll('.panel-vista').forEach(panel=>{
+        panel.classList.remove('modulo-activo');
+    });
+
+    const panel=document.getElementById(idModuloObjetivo);
+
+    if(panel){
+        panel.classList.add('modulo-activo');
+    }
+
+    document.querySelectorAll('.menu-item').forEach(item=>{
+        item.classList.remove('activo');
+    });
+
+    const mapa={
+        'modulo-bienvenida':'nav-bienvenida',
+        'modulo-historia':'nav-historia',
+        'modulo-jornadas':'nav-jornadas',
+        'modulo-carreras':'nav-carreras',
+        'modulo-personal':'nav-personal',
+        'modulo-contacto':'nav-contacto'
+    };
+
+    const nav=document.getElementById(mapa[idModuloObjetivo]);
+
+    if(nav){
+        nav.classList.add('activo');
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+}
+
+</script>
+
+</body>
+</html>
